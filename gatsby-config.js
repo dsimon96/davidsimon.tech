@@ -1,34 +1,38 @@
 require(`dotenv`).config({
   path: `.env`,
-})
+});
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `David Simon`,
+    siteTitleAlt: `David Simon's Website and Blog`,
+    siteHeadline: `David Simon's Website and Blog`,
+    siteDescription: `The personal website and blog of software engineer David Simon.`,
+    siteUrl: `https://davidsimon.tech`,
+    siteLanguage: `en`,
+    siteImage: `/banner.jpg`,
+    author: `David Simon <D@vidSimon.tech>`,
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
+        formatString: `M/D/YYYY`,
+        externalLinks: [
+          {
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/dsimon96/`,
+          },
+          {
+            name: `GitHub`,
+            url: `https://github.com/dsimon96`,
+          },
+        ],
         navigation: [
           {
             title: `Blog`,
             slug: `/blog`,
-          },
-          {
-            title: `About`,
-            slug: `/about`,
-          },
-        ],
-        externalLinks: [
-          {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
-          },
-          {
-            name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
           },
         ],
       },
@@ -43,28 +47,26 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `David Simon's Website and Blog`,
+        short_name: `davidsimon.tech`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#6B46C1`,
+        theme_color: `#041A60`,
         display: `standalone`,
+        icon: `static/apple-touch-icon.png`,
         icons: [
           {
-            src: `/android-chrome-192x192.png`,
-            sizes: `192x192`,
+            src: `/favicon-16x16.png`,
+            sizes: `16x16`,
             type: `image/png`,
           },
           {
-            src: `/android-chrome-512x512.png`,
-            sizes: `512x512`,
+            src: `/favicon-32x32.png`,
+            sizes: `32x32`,
             type: `image/png`,
           },
         ],
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
   ],
-}
+};
